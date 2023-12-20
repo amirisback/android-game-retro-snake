@@ -13,7 +13,7 @@
         android:theme="@style/Theme.GameDev"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name="io.github.amirisback.retrosnake.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

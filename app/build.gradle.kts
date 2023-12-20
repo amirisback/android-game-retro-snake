@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "io.github.amirisback.gamedev"
+    namespace = "io.github.amirisback.retrosnake"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "io.github.amirisback.gamedev"
+        applicationId = "io.github.amirisback.retrosnake"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
