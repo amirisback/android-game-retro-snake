@@ -1,4 +1,4 @@
-package io.github.amirisback.gamedev
+package io.github.amirisback.retrosnake
 
 import org.junit.Test
 
