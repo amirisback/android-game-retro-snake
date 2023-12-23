@@ -1,5 +1,6 @@
 package io.github.amirisback.retrosnake;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -36,4 +37,11 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
     }
+
+    private void play() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

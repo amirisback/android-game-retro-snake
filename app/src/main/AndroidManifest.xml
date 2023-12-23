@@ -13,7 +13,7 @@
         android:theme="@style/Theme.GameDev"
         tools:targetApi="31">
         <activity
-            android:name="io.github.amirisback.retrosnake.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +22,13 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".GameActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/app_id"/>
+            android:value="@string/app_id" />
 
     </application>
 
