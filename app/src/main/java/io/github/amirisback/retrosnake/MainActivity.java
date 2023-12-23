@@ -3,12 +3,14 @@ package io.github.amirisback.retrosnake;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+
+import io.github.amirisback.retrosnake.databinding.ActivityMainBinding;
 
 /**
  * Created by faisalamircs on 23/12/2023
@@ -20,14 +22,19 @@ import com.google.android.gms.ads.MobileAds;
  */
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     private AdView mAdView;
+
+    @NonNull
+    @Override
+    protected ActivityMainBinding setupViewBinding() {
+        return ActivityMainBinding.inflate(getLayoutInflater());
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         MobileAds.initialize(this, initializationStatus -> {
 
@@ -35,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        getBinding().btnPlay.setOnClickListener(v -> play());
+        getBinding().tvPlay.setOnClickListener(v -> play());
 
     }
 
