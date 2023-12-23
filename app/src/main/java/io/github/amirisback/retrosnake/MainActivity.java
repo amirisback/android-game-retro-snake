@@ -49,7 +49,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     }
 
     private void play() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
         finish();
     }
