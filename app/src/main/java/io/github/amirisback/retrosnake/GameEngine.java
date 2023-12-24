@@ -112,7 +112,7 @@ public class GameEngine {
                     snakePointsList.get(0).setSnakeX(headX);
                     snakePointsList.get(0).setSnakeY(headY + AppConstants.pointSize * 2);
                     if (snakePointsList.get(0).getSnakeY() > AppConstants.surfaceView_height - AppConstants.pointSize) {
-                        snakePointsList.get(0).setSnakeX(AppConstants.pointSize);
+                        snakePointsList.get(0).setSnakeY(AppConstants.pointSize);
                     }
                     break;
             }
@@ -139,7 +139,7 @@ public class GameEngine {
                         appleY + AppConstants.pointSize,
                         applePaint
                 );
-                for (int i = 0; i < snakePointsList.size(); i++) {
+                for (int i = 1; i < snakePointsList.size(); i++) {
                     int getTempX = snakePointsList.get(i).getSnakeX();
                     int getTempY = snakePointsList.get(i).getSnakeY();
                     snakePointsList.get(i).setSnakeX(headX);
@@ -167,7 +167,7 @@ public class GameEngine {
 
     private boolean checkGameOver(int headX, int headY) {
         boolean gameOver = false;
-        for (int i = 0; i < snakePointsList.size(); i++) {
+        for (int i = 1; i < snakePointsList.size(); i++) {
             if (headX == snakePointsList.get(i).getSnakeX() && headY == snakePointsList.get(i).getSnakeY()) {
                 gameOver = true;
                 break;

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class GameThread extends Thread {
 
-    final SurfaceHolder surfaceHolder;
+    SurfaceHolder surfaceHolder;
     boolean isRunning;
     long startTime;
     long loopTime;
@@ -35,7 +35,7 @@ public class GameThread extends Thread {
     public void run() {
         while (isRunning) {
             startTime = SystemClock.uptimeMillis();
-            Canvas canvas = surfaceHolder.lockCanvas();
+            Canvas canvas = surfaceHolder.lockCanvas(null);
             if (canvas != null) {
                 synchronized (surfaceHolder) {
                     if (!startGame) {

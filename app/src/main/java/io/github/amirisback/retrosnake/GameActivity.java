@@ -27,7 +27,6 @@ import io.github.amirisback.retrosnake.databinding.ActivityGameBinding;
 public class GameActivity extends BaseActivity<ActivityGameBinding> implements SurfaceHolder.Callback {
 
     GameThread gameThread;
-    SurfaceHolder surfaceHolder;
     MediaPlayer btn_click;
 
     @NonNull
@@ -47,10 +46,9 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> implements S
 
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder holder) {
-        this.surfaceHolder = holder;
-        gameThread = new GameThread(surfaceHolder);
+        gameThread = new GameThread(holder);
         if (!gameThread.isRunning()) {
-            gameThread = new GameThread(surfaceHolder);
+            gameThread = new GameThread(holder);
             gameThread.start();
         } else {
             gameThread.start();
