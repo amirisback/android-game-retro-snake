@@ -6,10 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-
 import io.github.amirisback.retrosnake.databinding.ActivityMainBinding;
 
 /**
@@ -24,8 +20,6 @@ import io.github.amirisback.retrosnake.databinding.ActivityMainBinding;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
-    private AdView mAdView;
-
     @NonNull
     @Override
     protected ActivityMainBinding setupViewBinding() {
@@ -35,14 +29,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        MobileAds.initialize(this, initializationStatus -> {
-
-        });
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
         getBinding().btnPlay.setOnClickListener(v -> play());
         getBinding().tvPlay.setOnClickListener(v -> play());
 

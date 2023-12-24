@@ -1,6 +1,9 @@
 package io.github.amirisback.retrosnake;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,7 +31,27 @@ public class GameOverActivity extends BaseActivity<ActivityGameOverBinding> {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int score = getIntent().getExtras().getInt("score");
+        SharedPreferences pref = getSharedPreferences("MyPref", 0);
+        int scoreSP = pref.getInt("scoreSP", 0);
+        SharedPreferences.Editor editor = pref.edit();
+        if (score > scoreSP){
+            scoreSP = score;
+            editor.putInt("scoreSP", scoreSP);
+            editor.commit();
+        }
+        getBinding().tvPoints.setText(String.valueOf(score));
+        getBinding().tvPersonalBest.setText(String.valueOf(scoreSP));
+    }
 
+    public void restart(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void exit(View view){
+        finish();
     }
 
 }
